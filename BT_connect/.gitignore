@@ -1,0 +1,84 @@
+# ===========================================
+#   .gitignore — hanya source code yang di-push
+# ===========================================
+
+# --- File kredensial & key (JANGAN di-push) ---
+key.sh
+cekkey.sh
+ceksignerapk.sh
+*.jks
+*.keystore
+*.p12
+*.pem
+*.key
+key.properties
+keystore.properties
+release-signing.properties
+
+# --- Konfigurasi lokal (beda tiap mesin) ---
+local.properties
+*.iml
+.gradle/
+.idea/
+.DS_Store
+Thumbs.db
+*.log
+
+# --- Gradle build output ---
+build/
+*/build/
+**/build/
+.gradle/
+gradle-app.setting
+.gradletasknamecache
+captures/
+.externalNativeBuild/
+.cxx/
+
+# --- APK / AAB / hasil build ---
+*.apk
+*.aab
+*.ap_
+*.dex
+*.class
+*.jar
+*.arr
+output/
+release/
+debug/
+
+# --- Folder native build ---
+obj/
+libs/*.so
+
+# --- Cache & temp ---
+.cache/
+tmp/
+temp/
+*.tmp
+*.bak
+*.swp
+*~
+
+# --- CI/CD lokal ---
+.env
+.env.*
+!.env.example
+
+# --- Kotlin / Java ---
+*.hprof
+
+# ===========================================
+#   KONFIG UMUM — WAJIB DI-PUSH
+# ===========================================
+!gradle.properties
+!build.sh
+!build.gradle
+!settings.gradle
+!gradlew
+!gradle/wrapper/gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.properties
+!README.MD
+
+
+

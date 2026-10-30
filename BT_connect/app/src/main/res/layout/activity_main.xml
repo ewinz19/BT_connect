@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:gravity="center_horizontal">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reconnect Bluetooth"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nama perangkat Bluetooth target"
+        android:textSize="13sp"
+        android:textColor="#666"
+        android:layout_marginBottom="4dp"/>
+
+    <EditText
+        android:id="@+id/etName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="misal: bloutooth"
+        android:inputType="textNoSuggestions"
+        android:maxLines="1"
+        android:layout_marginBottom="16dp"/>
+
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Simpan Nama"/>
+
+    <Button
+        android:id="@+id/btnConnect"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Konek Sekarang"
+        android:layout_marginTop="8dp"/>
+
+    <Button
+        android:id="@+id/btnAddWidget"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tambah Widget ke Home Screen"
+        android:layout_marginTop="8dp"/>
+
+    <TextView
+        android:id="@+id/tvStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:text="Belum ada nama tersimpan"/>
+
+</LinearLayout>

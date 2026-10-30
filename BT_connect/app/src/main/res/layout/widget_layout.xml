@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="8dp"
+    android:background="#223344"
+    android:gravity="center">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reconnect BT"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:textSize="13sp"/>
+
+    <TextView
+        android:id="@+id/widgetMac"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Belum ada MAC"
+        android:textColor="#CCCCCC"
+        android:textSize="10sp"
+        android:layout_marginTop="2dp"/>
+
+    <Button
+        android:id="@+id/widgetBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Konek"
+        android:textSize="12sp"
+        android:layout_marginTop="4dp"
+        android:minHeight="0dp"
+        android:minWidth="0dp"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="4dp"/>
+</LinearLayout>

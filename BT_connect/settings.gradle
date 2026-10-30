@@ -1,0 +1,18 @@
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS) // atau FAIL_ON_PROJECT_REPOS
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+include(":app")
+rootProject.name = "BT_connect"

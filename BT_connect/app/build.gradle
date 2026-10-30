@@ -1,0 +1,120 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    namespace "com.ewinz.btreconnect"
+    compileSdk 34
+    buildFeatures {
+    viewBinding true
+}
+
+
+    defaultConfig {
+        applicationId "com.ewinz.btreconnect"
+        minSdk 21
+        targetSdk 34
+        versionCode 1
+        versionName "1.2"
+        multiDexEnabled true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+
+signingConfigs {
+    release {
+        def keystorePath = project.hasProperty('RELEASE_STORE_FILE') ? RELEASE_STORE_FILE : "/storage/emulated/0/APK/platform-key/my-release-key.jks"
+        storeFile file(keystorePath)
+        storePassword project.hasProperty('RELEASE_STORE_PASSWORD') ? RELEASE_STORE_PASSWORD : ""
+        keyAlias project.hasProperty('RELEASE_KEY_ALIAS') ? RELEASE_KEY_ALIAS : ""
+        keyPassword project.hasProperty('RELEASE_KEY_PASSWORD') ? RELEASE_KEY_PASSWORD : ""
+    }
+}
+
+
+
+    
+    buildTypes {
+        release {
+            // Groovy DSL menggunakan nama property tanpa 'is'
+            minifyEnabled true
+            shrinkResources true
+            debuggable false
+            signingConfig signingConfigs.release
+            
+       proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'),
+                'proguard-rules.pro'
+            
+        }
+        
+        debug {
+            debuggable false
+         //   applicationIdSuffix '.debug'
+        //    versionNameSuffix '-DEBUG'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+}
+
+
+
+dependencies {
+    // ===  ===
+    implementation("androidx.core:core-ktx:1.13.1")           // ContextCompat, NotificationCompat
+    implementation("androidx.appcompat:appcompat:1.7.0")       // AppCompatActivity
+    implementation("com.google.android.material:material:1.12.0") // tombol, tema Material
+
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.4") // kalau nanti mau pakai LiveData
+    implementation("androidx.work:work-runtime-ktx:2.9.1")           // kalau nanti mau auto-reconnect berkala
+    testImplementation 'junit:junit:4.13.2'
+}
+
+
+
+  
+
+
+task signReleaseWithTimestamp(type: Exec) {
+    dependsOn 'assembleRelease'
+
+    def keystorePath = project.hasProperty('RELEASE_STORE_FILE') 
+        ? project.RELEASE_STORE_FILE 
+        : "/storage/emulated/0/APK/platform-key/my-release-key.jks"
+
+    def storePass = project.hasProperty('RELEASE_STORE_PASSWORD') 
+        ? project.RELEASE_STORE_PASSWORD 
+        : ""
+
+    def keyPass = project.hasProperty('RELEASE_KEY_PASSWORD') 
+        ? project.RELEASE_KEY_PASSWORD 
+        : ""
+
+    def keyAlias = project.hasProperty('RELEASE_KEY_ALIAS') 
+        ? project.RELEASE_KEY_ALIAS 
+        : ""
+
+    def tsaUrl = project.hasProperty('TSA_URL') 
+        ? project.TSA_URL 
+        : "http://timestamp.digicert.com"
+
+    def unsignedApkPath = file("$buildDir/outputs/apk/release/app-release-unsigned.apk").absolutePath
+
+    commandLine 'jarsigner', 
+        '-verbose',
+        '-tsa', tsaUrl,
+        '-keystore', keystorePath,
+        '-storepass', storePass,
+        '-keypass', keyPass,
+        unsignedApkPath,
+        keyAlias
+}
