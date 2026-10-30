@@ -16,7 +16,7 @@
 
 ## ✨ Tentang
 
-**Bt_Connect** adalah aplikasi sederhana untuk **menyambungkan kembali perangkat Bluetooth** yang sudah pernah di-pair.
+**Bt_Connect** adalah aplikasi sederhana untuk **menyambungkan kembali perangkat Bluetooth** dengan cara mudah hanya memasukan nama bloutooth.
 
 Sering kali kita punya perangkat — seperti **pemutar audio**, **head unit mobil**, **MP3 player**, atau gadget lain — yang setiap kali terputus **harus melakukan pairing ulang dari awal**. Proses ini memakan waktu dan cukup menjengkelkan.
 
