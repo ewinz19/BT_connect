@@ -32,7 +32,7 @@ Sering kali kita punya perangkat — seperti **pemutar audio**, **head unit mobi
 |-------|-----------|
 | ⚡ **Reconnect Cepat** | Sambungkan ulang perangkat Bluetooth favorit dengan cepat. |
 | 🎯 **Ringan & Simple** | Antarmuka minimalis, fokus pada fungsi inti. |
-| 🔒 **Aman** | Tidak menyimpan data sensitif di luar perangkat. |
+| 🔒 **Aman** | Tidak menyimpan data sensitif apa pun. |
 | 📱 **Kompatibel** | Berjalan di berbagai versi Android modern. |
 
 ---
@@ -52,7 +52,7 @@ Sering kali kita punya perangkat — seperti **pemutar audio**, **head unit mobi
 ```bash
 git clone <url-repo> BT_connect
 cd BT_connect
-
+Bash build.sh
 
 # Bt_Connect
 
